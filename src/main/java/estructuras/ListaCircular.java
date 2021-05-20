@@ -318,9 +318,12 @@ public class ListaCircular<T> {
             this.anterior = anterior;
         }
 
-        private Nodo(T informacion) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        public Nodo(T informacion) {
+            this.informacion = informacion;
         }
+
+         
+      
 
         public T getInformacion() {
             return informacion;

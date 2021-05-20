@@ -5,6 +5,14 @@
  */
 package UIAdmin;
 
+import UIAdmin.ABC_Edificio.AgregarEdificio;
+import UIAdmin.ABC_Edificio.EliminarEdificio;
+import UIAdmin.ABC_Salon.AgregarSalon;
+import UIAdmin.ABC_Salon.EditarSalon;
+import UIAdmin.ABC_Usuario.AgregarUsuario;
+import UIAdmin.ABC_Usuario.EditarUsuario;
+import UIGeneral.Login;
+import implementacion.EstructuraGeneral;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 
@@ -18,6 +26,11 @@ public class InicioAdmin extends javax.swing.JFrame {
 
     public InicioAdmin() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+        this.pack();
+        datoUsuario.setText(String.valueOf(EstructuraGeneral.getUsuarioActual().getId()));
+        datoNombre.setText(EstructuraGeneral.getUsuarioActual().getNombre());
 
     }
 
@@ -93,7 +106,7 @@ public class InicioAdmin extends javax.swing.JFrame {
                 salirActionPerformed(evt);
             }
         });
-        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 80, 120, 40));
+        getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 80, 140, 40));
 
         instruccionesUsuario2.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 18)); // NOI18N
         instruccionesUsuario2.setForeground(new java.awt.Color(4, 2, 2));
@@ -113,12 +126,12 @@ public class InicioAdmin extends javax.swing.JFrame {
         datoUsuario.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 18)); // NOI18N
         datoUsuario.setForeground(new java.awt.Color(4, 2, 2));
         datoUsuario.setText("Usuario");
-        getContentPane().add(datoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 70, 300, 30));
+        getContentPane().add(datoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 70, 290, 30));
 
         datoNombre.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 18)); // NOI18N
         datoNombre.setForeground(new java.awt.Color(4, 2, 2));
         datoNombre.setText("Nombre");
-        getContentPane().add(datoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 100, 300, 30));
+        getContentPane().add(datoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 100, 290, 30));
 
         titulo2.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 44)); // NOI18N
         titulo2.setForeground(new java.awt.Color(1, 1, 1));
@@ -335,46 +348,18 @@ public class InicioAdmin extends javax.swing.JFrame {
         });
     }
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        System.exit(0);        // TODO add your handling code here:
+        EstructuraGeneral.cerrarSesion();
+        this.dispose();
+        new Login();
     }//GEN-LAST:event_salirActionPerformed
 
     private void ABCUsuarios2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCUsuarios2ActionPerformed
-      /**  String codigo =textoUsuario.getText();
-        InicioUsuario user1 = new InicioUsuario();
-        Empleado empleado = user1.iniciarSesionEmpleado(codigo);
-        InicioUsuario user2 = new InicioUsuario();
-        Cliente cliente = user2.iniciarSesionCliente(codigo);
-        if(empleado != null)
-        {
-            JOptionPane.showMessageDialog(null, "Bienvenido Empleado "+empleado.getNombre());
-        ElegirTienda accesarAlMenu = new ElegirTienda();
-        accesarAlMenu.setVisible(true);
-        this.setVisible(false);
-            
-            
-        }else if(cliente != null)
-        {
-            JOptionPane.showMessageDialog(null, "Bienvenido  "+cliente.getNombre()+" al Software de Intelaf");
-            
-        MenuCliente accesarAlMenu = new MenuCliente(cliente.getNombre(), cliente.getNIT());
-        accesarAlMenu.setVisible(true);
-        this.setVisible(false);   
-        
-        }
-        else if(textoUsuario.getText()==""){
-            JOptionPane.showMessageDialog(null, "Ingrese su Codigo para Iniciar Sesión");
-            
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Ingrese un Codigo de Inicio de Sesión correcto");
-        
-        }
-        * */
+        new EditarUsuario();
         
     }//GEN-LAST:event_ABCUsuarios2ActionPerformed
 
     private void ABCSalonesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCSalonesActionPerformed
-        // TODO add your handling code here:
+        new AgregarSalon();
     }//GEN-LAST:event_ABCSalonesActionPerformed
 
     private void cargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarDatosActionPerformed
@@ -387,14 +372,15 @@ public class InicioAdmin extends javax.swing.JFrame {
 
     private void ABCUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCUsuariosActionPerformed
         // TODO add your handling code here:
+        new AgregarUsuario();
     }//GEN-LAST:event_ABCUsuariosActionPerformed
 
     private void ABCSalones1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCSalones1ActionPerformed
-        // TODO add your handling code here:
+        new EditarSalon();
     }//GEN-LAST:event_ABCSalones1ActionPerformed
 
     private void ABCSalones2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCSalones2ActionPerformed
-        // TODO add your handling code here:
+       new EditarSalon();
     }//GEN-LAST:event_ABCSalones2ActionPerformed
 
     private void ABCCursos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCCursos2ActionPerformed
@@ -406,11 +392,11 @@ public class InicioAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_ABCCursos3ActionPerformed
 
     private void ABCEdificios1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCEdificios1ActionPerformed
-        // TODO add your handling code here:
+        new AgregarEdificio();
     }//GEN-LAST:event_ABCEdificios1ActionPerformed
 
     private void ABCEdificios2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCEdificios2ActionPerformed
-        // TODO add your handling code here:
+        new EliminarEdificio();
     }//GEN-LAST:event_ABCEdificios2ActionPerformed
 
     private void ABCCursos4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCCursos4ActionPerformed

@@ -35,7 +35,8 @@ public class EstructuraGeneral {
     private static Usuario usuarioActual;
 
     public static void inicializarSistema() {
-        listaUsuarios.add(new Usuario(123, "Eriksson", "1", Usuario.SUPER));
+        listaUsuarios.add(new Usuario(123, "Eriksson Hernández López", "1", Usuario.SUPER));
+        listaUsuarios.add(new Usuario(111, "Juanito Alcachofa", "1", Usuario.COLABORADOR));
         /*listaUsuarios.add(new Usuario(123, "Alejandro", "1", Usuario.COLABORADOR));
         addEstudiante(123, "lexis", "zona1");
         addEstudiante(1234, "lexis", "zona1");

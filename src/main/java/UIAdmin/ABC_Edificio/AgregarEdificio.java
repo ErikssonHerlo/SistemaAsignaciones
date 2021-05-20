@@ -5,8 +5,10 @@
  */
 package UIAdmin.ABC_Edificio;
 
+import implementacion.EstructuraGeneral;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 
 
@@ -21,7 +23,9 @@ public class AgregarEdificio extends javax.swing.JFrame {
      */
     public AgregarEdificio() {
         initComponents();
-
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+        this.pack();
     }
 
     /**
@@ -41,7 +45,7 @@ public class AgregarEdificio extends javax.swing.JFrame {
         instruccionesUsuario1 = new javax.swing.JLabel();
         fondo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setSize(new java.awt.Dimension(640, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -64,7 +68,7 @@ public class AgregarEdificio extends javax.swing.JFrame {
                 textoUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(textoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 290, 30));
+        getContentPane().add(textoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 260, 30));
 
         Ingresar.setBackground(new java.awt.Color(43, 46, 46));
         Ingresar.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 15)); // NOI18N
@@ -130,38 +134,21 @@ public class AgregarEdificio extends javax.swing.JFrame {
         });
     }
     private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-      /**  String codigo =textoUsuario.getText();
-        InicioUsuario user1 = new InicioUsuario();
-        Empleado empleado = user1.iniciarSesionEmpleado(codigo);
-        InicioUsuario user2 = new InicioUsuario();
-        Cliente cliente = user2.iniciarSesionCliente(codigo);
-        if(empleado != null)
+       
+       String nombre = textoUsuario.getText().trim();
+        if (!nombre.equals(""))
         {
-            JOptionPane.showMessageDialog(null, "Bienvenido Empleado "+empleado.getNombre());
-        ElegirTienda accesarAlMenu = new ElegirTienda();
-        accesarAlMenu.setVisible(true);
-        this.setVisible(false);
-            
-            
-        }else if(cliente != null)
+            if (EstructuraGeneral.agregarEdificio(nombre))
+            {
+                JOptionPane.showMessageDialog(this, "El Edificio: " + nombre + " se ha agregado correctamente.","Confirmacion",JOptionPane.INFORMATION_MESSAGE);
+                textoUsuario.setText("");
+            }else{
+                JOptionPane.showMessageDialog(this, "No se ha podido agregar el edificio porque este nombre ya existe.","Error",JOptionPane.ERROR_MESSAGE);
+            }
+        } else
         {
-            JOptionPane.showMessageDialog(null, "Bienvenido  "+cliente.getNombre()+" al Software de Intelaf");
-            
-        MenuCliente accesarAlMenu = new MenuCliente(cliente.getNombre(), cliente.getNIT());
-        accesarAlMenu.setVisible(true);
-        this.setVisible(false);   
-        
+            JOptionPane.showMessageDialog(this, "Nombre no valido","Error",JOptionPane.ERROR_MESSAGE);
         }
-        else if(textoUsuario.getText()==""){
-            JOptionPane.showMessageDialog(null, "Ingrese su Codigo para Iniciar Sesión");
-            
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Ingrese un Codigo de Inicio de Sesión correcto");
-        
-        }
-        * */
-        
     }//GEN-LAST:event_IngresarActionPerformed
 
     private void textoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoUsuarioActionPerformed

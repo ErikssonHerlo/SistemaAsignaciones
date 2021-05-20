@@ -5,8 +5,12 @@
  */
 package UIGeneral;
 
+import UIAdmin.InicioAdmin;
+import implementacion.EstructuraGeneral;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+import objetos.Usuario;
 
 
 
@@ -15,15 +19,17 @@ import javax.swing.ImageIcon;
  * @author erikssonherlo
  */
 public class Login extends javax.swing.JFrame {
-    String Fondo1 = "fondo.jpg";
-    String Logotipo = "Logo1.png";
-    /**
-     * Creates new form Interfaz
-     */
+    
     public Login() {
         initComponents();
-      //  cargarFondo(Fondo1);
-        //cargarLogotipo(Logotipo);
+     if(EstructuraGeneral.isEmptyUsuario()){
+         EstructuraGeneral.inicializarSistema();
+     } else {
+         System.out.println("El Sistema ya ha sido inicializado, con el Administrador");
+     }
+        this.setLocationRelativeTo(null);
+        this.setVisible(true);
+        this.pack();
     }
 
     /**
@@ -39,10 +45,10 @@ public class Login extends javax.swing.JFrame {
         titulo = new javax.swing.JLabel();
         instruccionesUsuario = new javax.swing.JLabel();
         textoUsuario = new javax.swing.JTextField();
-        Ingresar = new javax.swing.JButton();
+        InicioSesion = new javax.swing.JButton();
         salir = new javax.swing.JButton();
         instruccionesUsuario1 = new javax.swing.JLabel();
-        textoPassword = new javax.swing.JTextField();
+        passwordUsuario = new javax.swing.JPasswordField();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,16 +76,16 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(textoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 360, 290, 30));
 
-        Ingresar.setBackground(new java.awt.Color(43, 46, 46));
-        Ingresar.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 15)); // NOI18N
-        Ingresar.setForeground(new java.awt.Color(250, 250, 244));
-        Ingresar.setText("Ingresar");
-        Ingresar.addActionListener(new java.awt.event.ActionListener() {
+        InicioSesion.setBackground(new java.awt.Color(43, 46, 46));
+        InicioSesion.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 15)); // NOI18N
+        InicioSesion.setForeground(new java.awt.Color(250, 250, 244));
+        InicioSesion.setText("Iniciar Sesión");
+        InicioSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IngresarActionPerformed(evt);
+                InicioSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(Ingresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, 290, 40));
+        getContentPane().add(InicioSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 510, 290, 40));
 
         salir.setBackground(new java.awt.Color(43, 46, 46));
         salir.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 15)); // NOI18N
@@ -97,12 +103,12 @@ public class Login extends javax.swing.JFrame {
         instruccionesUsuario1.setText("Contraseña:");
         getContentPane().add(instruccionesUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 280, 30));
 
-        textoPassword.addActionListener(new java.awt.event.ActionListener() {
+        passwordUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoPasswordActionPerformed(evt);
+                passwordUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(textoPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, 290, 30));
+        getContentPane().add(passwordUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, 290, 30));
 
         fondo.setBackground(new java.awt.Color(59, 55, 51));
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo.jpg"))); // NOI18N
@@ -154,72 +160,38 @@ public class Login extends javax.swing.JFrame {
         System.exit(0);        // TODO add your handling code here:
     }//GEN-LAST:event_salirActionPerformed
 
-    private void IngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IngresarActionPerformed
-      /**  String codigo =textoUsuario.getText();
-        InicioUsuario user1 = new InicioUsuario();
-        Empleado empleado = user1.iniciarSesionEmpleado(codigo);
-        InicioUsuario user2 = new InicioUsuario();
-        Cliente cliente = user2.iniciarSesionCliente(codigo);
-        if(empleado != null)
+    private void InicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InicioSesionActionPerformed
+    
+        if(EstructuraGeneral.loginUser(textoUsuario.getText(), passwordUsuario.getText()))
         {
-            JOptionPane.showMessageDialog(null, "Bienvenido Empleado "+empleado.getNombre());
-        ElegirTienda accesarAlMenu = new ElegirTienda();
-        accesarAlMenu.setVisible(true);
-        this.setVisible(false);
-            
-            
-        }else if(cliente != null)
+            if(EstructuraGeneral.getUsuarioActual().getTipoUsuario().equals(Usuario.SUPER))
+            {
+                new InicioAdmin();
+                this.dispose();
+            }
+        } else 
         {
-            JOptionPane.showMessageDialog(null, "Bienvenido  "+cliente.getNombre()+" al Software de Intelaf");
-            
-        MenuCliente accesarAlMenu = new MenuCliente(cliente.getNombre(), cliente.getNIT());
-        accesarAlMenu.setVisible(true);
-        this.setVisible(false);   
-        
-        }
-        else if(textoUsuario.getText()==""){
-            JOptionPane.showMessageDialog(null, "Ingrese su Codigo para Iniciar Sesión");
-            
-        }
-        else{
-            JOptionPane.showMessageDialog(null, "Ingrese un Codigo de Inicio de Sesión correcto");
-        
-        }
-        * */
-        
-    }//GEN-LAST:event_IngresarActionPerformed
+            JOptionPane.showMessageDialog(this, "Usuario o Contraseña Incorrectos","Error",JOptionPane.ERROR_MESSAGE);
+              }   
+    }//GEN-LAST:event_InicioSesionActionPerformed
 
     private void textoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoUsuarioActionPerformed
         // TODO add your handling code here:
         
     }//GEN-LAST:event_textoUsuarioActionPerformed
 
-    private void textoPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoPasswordActionPerformed
+    private void passwordUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textoPasswordActionPerformed
+    }//GEN-LAST:event_passwordUsuarioActionPerformed
 
-    /**
-     */
-   /** public void cargarFondo(String NombreImagen)
-    {
-        ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource(NombreImagen));
-        ImageIcon imageIconFinal = new ImageIcon(imageIcon.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_DEFAULT));
-        fondo.setIcon(imageIconFinal);
-    }
-        public void cargarLogotipo(String NombreImagen)
-    {
-        ImageIcon imageIcon = new ImageIcon(getClass().getClassLoader().getResource(NombreImagen));
-        ImageIcon imageIconFinal = new ImageIcon(imageIcon.getImage().getScaledInstance(logo.getWidth(), logo.getHeight(), Image.SCALE_DEFAULT));
-        logo.setIcon(imageIconFinal);
-    }*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    public javax.swing.JButton Ingresar;
+    public javax.swing.JButton InicioSesion;
     public javax.swing.JLabel fondo;
     public javax.swing.JLabel instruccionesUsuario;
     public javax.swing.JLabel instruccionesUsuario1;
     public javax.swing.JLabel logo;
+    private javax.swing.JPasswordField passwordUsuario;
     public javax.swing.JButton salir;
-    public javax.swing.JTextField textoPassword;
     public javax.swing.JTextField textoUsuario;
     public javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables

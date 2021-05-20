@@ -322,9 +322,11 @@ public class ListaEnlazada<T> {
             this.siguiente = siguiente;
         }
 
-        private Nodo(T tipo) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        public Nodo(T tipo) {
+            this.tipo = tipo;
         }
+
+       
 
         public T getTipo() {
             return tipo;
