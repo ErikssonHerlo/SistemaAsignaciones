@@ -40,21 +40,7 @@ public class EstructuraGeneral {
         Estudiante estudiante = new Estudiante(201830459, "Fredi Leis", "Quiche");
         tablaEstudiantes.add(estudiante);
         //listaUsuarios.add(new Usuario(222, "Fredi Leis", "1", Usuario.ESTUDIANTE, estudiante));
-        
-        /*listaUsuarios.add(new Usuario(123, "Alejandro", "1", Usuario.COLABORADOR));
-        addEstudiante(123, "lexis", "zona1");
-        addEstudiante(1234, "lexis", "zona1");
-        addEstudiante(1235, "lexis", "zona1");
-        listaEdificios.add((new Edificio("edificio1")));
-        addSalonEdificio("edificio1", 1, 2);
-        listaCursos.add(new Curso(1,"ciencias",2,20));
-        arbolCatedraticos.add(new Catedratico(1,"alfredo ","chileverde"));
-        Horario horario = getDataHorario(0, "9:00", "lunes","1", "1", "edificio1", 1);
-        if(horario != null){
-            addHorario(horario);
-        }else{
-            System.out.println("Algo salio mal con el horario");
-        }*/
+ 
     }
 
     public static boolean loginUser(String user, String password) {

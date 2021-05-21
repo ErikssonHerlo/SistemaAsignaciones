@@ -1,0 +1,16 @@
+digraph G {
+nodesep=.05;
+rankdir=LR;
+node[shape=record,width=.1,height=.1];
+
+
+nodeo0 [label = "<f0> | <f1> | <f2> | ", height=2.5];
+node [width = 1.5];
+nodo0[label = "{ <n> 2927-Eriksson-QUiche}"];
+nodo1[label = "{ <n> 201830459-Fredi Leis-Quiche}"];
+nodo2[label = "{ <n> 3987-Juan-Flores}"];
+nodeo0:f0 -> nodo0:n;
+nodeo0:f1 -> nodo1:n;
+nodeo0:f2 -> nodo2:n;
+
+}

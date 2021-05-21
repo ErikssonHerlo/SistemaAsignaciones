@@ -7,6 +7,7 @@ package UIGeneral;
 
 import UIAdmin.InicioAdmin;
 import UIColaborador.InicioColaborador;
+import UIEstudiante.InicioEstudiante;
 import implementacion.EstructuraGeneral;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -172,6 +173,9 @@ public class Login extends javax.swing.JFrame {
             } else if(EstructuraGeneral.getUsuarioActual().getTipoUsuario().equals(Usuario.COLABORADOR))
             {
                 new InicioColaborador();
+                this.dispose();
+            } else if(EstructuraGeneral.getUsuarioActual().getTipoUsuario().equals(Usuario.ESTUDIANTE)){
+                new InicioEstudiante();
                 this.dispose();
             }
         } else 

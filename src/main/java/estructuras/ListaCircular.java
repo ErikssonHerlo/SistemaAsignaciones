@@ -5,11 +5,13 @@
  */
 package estructuras;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import objetos.Asignacion;
 import objetos.Curso;
 import objetos.Edificio;
 import objetos.Horario;
+import objetos.Salon;
 import objetos.Usuario;
 
 /**
@@ -207,7 +209,7 @@ public class ListaCircular<T> {
                     System.out.println("ID: " + user.getId());
                     System.out.println("Nombre: " + user.getNombre());
                     System.out.println("Password: " + user.getPassword());
-                    System.out.println("Tipo: " + user.getTipoUsuario());
+                    System.out.println("TipoUsuario: " + user.getTipoUsuario());
 
                 } else if (aux.getInformacion() instanceof Edificio)
                 {
@@ -250,6 +252,8 @@ public class ListaCircular<T> {
             System.out.println("******* LISTA CIRCULAR VACIA *******");
         }
     }
+    
+     
 
     public boolean estaVacia() {
         if (raiz != null && fin != null)

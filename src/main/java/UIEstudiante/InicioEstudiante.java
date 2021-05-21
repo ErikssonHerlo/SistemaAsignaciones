@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package UIAdmin;
+package UIEstudiante;
 
+import UIAdmin.*;
 import UIAdmin.ABC_Curso.AgregarCurso;
 import UIAdmin.ABC_Curso.EditarCurso;
 import UIAdmin.ABC_Edificio.AgregarEdificio;
@@ -16,12 +17,8 @@ import UIAdmin.ABC_Usuario.AgregarUsuario;
 import UIAdmin.ABC_Usuario.EditarUsuario;
 import UIGeneral.Login;
 import implementacion.EstructuraGeneral;
-import implementacion.Graficadora;
 import java.awt.Image;
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
 
 
 
@@ -29,9 +26,9 @@ import javax.swing.JOptionPane;
  *
  * @author erikssonherlo
  */
-public class InicioAdmin extends javax.swing.JFrame {
+public class InicioEstudiante extends javax.swing.JFrame {
 
-    public InicioAdmin() {
+    public InicioEstudiante() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -78,8 +75,6 @@ public class InicioAdmin extends javax.swing.JFrame {
         titulo6 = new javax.swing.JLabel();
         instruccionesUsuario4 = new javax.swing.JLabel();
         instruccionesUsuario5 = new javax.swing.JLabel();
-        titulo7 = new javax.swing.JLabel();
-        ABCEdificios3 = new javax.swing.JButton();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -309,22 +304,6 @@ public class InicioAdmin extends javax.swing.JFrame {
         instruccionesUsuario5.setText("Sistema de Asignación de Cursos");
         getContentPane().add(instruccionesUsuario5, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 510, 410, 50));
 
-        titulo7.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 44)); // NOI18N
-        titulo7.setForeground(new java.awt.Color(1, 1, 1));
-        titulo7.setText("REPORTES");
-        getContentPane().add(titulo7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 660, 250, 40));
-
-        ABCEdificios3.setBackground(new java.awt.Color(43, 46, 46));
-        ABCEdificios3.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 15)); // NOI18N
-        ABCEdificios3.setForeground(new java.awt.Color(250, 250, 244));
-        ABCEdificios3.setText("GENERAR REPORTES GRAFICOS");
-        ABCEdificios3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ABCEdificios3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(ABCEdificios3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 720, 290, 40));
-
         fondo.setBackground(new java.awt.Color(59, 55, 51));
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo.jpg"))); // NOI18N
         fondo.setText("Fondo General");
@@ -351,24 +330,26 @@ public class InicioAdmin extends javax.swing.JFrame {
             }
         } catch (ClassNotFoundException ex)
         {
-            java.util.logging.Logger.getLogger(InicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex)
         {
-            java.util.logging.Logger.getLogger(InicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex)
         {
-            java.util.logging.Logger.getLogger(InicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex)
         {
-            java.util.logging.Logger.getLogger(InicioAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InicioEstudiante.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InicioAdmin().setVisible(true);
+                new InicioEstudiante().setVisible(true);
             }
         });
     }
@@ -432,39 +413,6 @@ public class InicioAdmin extends javax.swing.JFrame {
         new AgregarCurso();
     }//GEN-LAST:event_ABCCursos1ActionPerformed
 
-    private void ABCEdificios3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCEdificios3ActionPerformed
-        Graficadora graphics = new Graficadora();
-        
-        String nomArch = "HashTable";
-        String nombreArchivo = "HashTableEstudiantes";
-        FileWriter fichero = null;
-        try {
-            fichero = new FileWriter(nomArch);
-            PrintWriter writer = new PrintWriter(fichero);
-            writer.print(graphics.dotCodeTablaHash());
-            fichero.close();
-        } catch (Exception e) {
-            System.out.println("Error al escribir el archivo dot: " + e.getMessage());
-        } finally {
-            try {
-                if(null != fichero) {
-                    fichero.close();
-                }
-            } catch (Exception e) {
-                System.out.println("Error al cerrar el archivo");
-            }
-        }
-        try {
-            Runtime runtime = Runtime.getRuntime();
-            runtime.exec("dot -Tpng " + nomArch  + " -o " + nombreArchivo + ".png");
-            System.out.println("dot -Tpng " + nomArch  + " -o " + nombreArchivo + ".png");
-            Thread.sleep(500);
-            JOptionPane.showMessageDialog(null, "Imagen Generada en la carpeta del proyecto");
-        } catch (Exception e) {
-            System.out.println("Error al generar la imagen");
-        }
-    }//GEN-LAST:event_ABCEdificios3ActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JButton ABCCursos1;
     public javax.swing.JButton ABCCursos2;
@@ -472,7 +420,6 @@ public class InicioAdmin extends javax.swing.JFrame {
     public javax.swing.JButton ABCCursos4;
     public javax.swing.JButton ABCEdificios1;
     public javax.swing.JButton ABCEdificios2;
-    public javax.swing.JButton ABCEdificios3;
     public javax.swing.JButton ABCSalones;
     public javax.swing.JButton ABCSalones1;
     public javax.swing.JButton ABCSalones2;
@@ -496,6 +443,5 @@ public class InicioAdmin extends javax.swing.JFrame {
     public javax.swing.JLabel titulo4;
     public javax.swing.JLabel titulo5;
     public javax.swing.JLabel titulo6;
-    public javax.swing.JLabel titulo7;
     // End of variables declaration//GEN-END:variables
 }
