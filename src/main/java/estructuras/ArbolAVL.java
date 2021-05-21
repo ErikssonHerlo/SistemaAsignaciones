@@ -313,7 +313,7 @@ public class ArbolAVL<T> {
 
             if (nodo.getIzquierda() == null && nodo.getDerecha() == null)
             {
-                System.out.println("Nodo: " + getId(nodo));
+                System.out.println("\nNodo: " + getId(nodo));
             }
             if (nodo.getDerecha() != null)
             {

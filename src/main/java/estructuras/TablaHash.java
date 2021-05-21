@@ -90,7 +90,8 @@ public class TablaHash<T> {
         Estudiante estudiante = (Estudiante) buscarInformacion(estudianteEdited.getId());
         estudiante.setNombre(estudianteEdited.getNombre());
         estudiante.setDireccion(estudianteEdited.getDireccion());
-    }
+        
+     }
 
     public boolean add(T informacion) {
         if (buscarInformacion(getId(informacion)) != null)

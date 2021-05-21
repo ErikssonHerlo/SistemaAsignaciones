@@ -6,6 +6,7 @@
 package UIGeneral;
 
 import UIAdmin.InicioAdmin;
+import UIColaborador.InicioColaborador;
 import implementacion.EstructuraGeneral;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -167,6 +168,10 @@ public class Login extends javax.swing.JFrame {
             if(EstructuraGeneral.getUsuarioActual().getTipoUsuario().equals(Usuario.SUPER))
             {
                 new InicioAdmin();
+                this.dispose();
+            } else if(EstructuraGeneral.getUsuarioActual().getTipoUsuario().equals(Usuario.COLABORADOR))
+            {
+                new InicioColaborador();
                 this.dispose();
             }
         } else 

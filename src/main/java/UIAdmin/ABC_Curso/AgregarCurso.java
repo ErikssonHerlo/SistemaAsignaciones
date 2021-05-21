@@ -44,15 +44,15 @@ public class AgregarCurso extends javax.swing.JFrame {
         logo = new javax.swing.JLabel();
         titulo = new javax.swing.JLabel();
         instruccionesUsuario = new javax.swing.JLabel();
-        textoUsuario = new javax.swing.JTextField();
+        textoCodigo = new javax.swing.JTextField();
         agregar = new javax.swing.JButton();
         instruccionesUsuario1 = new javax.swing.JLabel();
         instruccionesUsuario2 = new javax.swing.JLabel();
-        textoUsuario1 = new javax.swing.JTextField();
+        textoNombre = new javax.swing.JTextField();
         instruccionesUsuario3 = new javax.swing.JLabel();
         instruccionesUsuario4 = new javax.swing.JLabel();
-        tipoUsuario = new javax.swing.JComboBox<>();
-        passwordUsuario = new javax.swing.JPasswordField();
+        textoSemestre = new javax.swing.JTextField();
+        textoCreditos = new javax.swing.JTextField();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -65,25 +65,25 @@ public class AgregarCurso extends javax.swing.JFrame {
 
         titulo.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 40)); // NOI18N
         titulo.setForeground(new java.awt.Color(1, 1, 1));
-        titulo.setText("AGREGAR USUARIO");
-        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 420, 53));
+        titulo.setText("AGREGAR CURSO");
+        getContentPane().add(titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, 380, 53));
 
         instruccionesUsuario.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 18)); // NOI18N
         instruccionesUsuario.setForeground(new java.awt.Color(4, 2, 2));
-        instruccionesUsuario.setText("Identificador:");
+        instruccionesUsuario.setText("Código:");
         getContentPane().add(instruccionesUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 140, 30));
 
-        textoUsuario.addActionListener(new java.awt.event.ActionListener() {
+        textoCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoUsuarioActionPerformed(evt);
+                textoCodigoActionPerformed(evt);
             }
         });
-        textoUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+        textoCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                textoUsuarioKeyTyped(evt);
+                textoCodigoKeyTyped(evt);
             }
         });
-        getContentPane().add(textoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 250, 30));
+        getContentPane().add(textoCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 250, 30));
 
         agregar.setBackground(new java.awt.Color(43, 46, 46));
         agregar.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 15)); // NOI18N
@@ -103,19 +103,19 @@ public class AgregarCurso extends javax.swing.JFrame {
 
         instruccionesUsuario2.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 18)); // NOI18N
         instruccionesUsuario2.setForeground(new java.awt.Color(4, 2, 2));
-        instruccionesUsuario2.setText("Contraseña:");
+        instruccionesUsuario2.setText("Creditos:");
         getContentPane().add(instruccionesUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 460, 120, 30));
 
-        textoUsuario1.addActionListener(new java.awt.event.ActionListener() {
+        textoNombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                textoUsuario1ActionPerformed(evt);
+                textoNombreActionPerformed(evt);
             }
         });
-        getContentPane().add(textoUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 250, 30));
+        getContentPane().add(textoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 250, 30));
 
         instruccionesUsuario3.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 18)); // NOI18N
         instruccionesUsuario3.setForeground(new java.awt.Color(4, 2, 2));
-        instruccionesUsuario3.setText("Tipo de Usuario:");
+        instruccionesUsuario3.setText("Semestre:");
         getContentPane().add(instruccionesUsuario3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 400, 160, 30));
 
         instruccionesUsuario4.setFont(new java.awt.Font("DejaVu Serif Condensed", 1, 18)); // NOI18N
@@ -123,20 +123,29 @@ public class AgregarCurso extends javax.swing.JFrame {
         instruccionesUsuario4.setText("Nombre:");
         getContentPane().add(instruccionesUsuario4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, 120, 30));
 
-        tipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estudiante", "Colaborador" }));
-        tipoUsuario.addActionListener(new java.awt.event.ActionListener() {
+        textoSemestre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tipoUsuarioActionPerformed(evt);
+                textoSemestreActionPerformed(evt);
             }
         });
-        getContentPane().add(tipoUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 250, 30));
+        textoSemestre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoSemestreKeyTyped(evt);
+            }
+        });
+        getContentPane().add(textoSemestre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 400, 250, 30));
 
-        passwordUsuario.addActionListener(new java.awt.event.ActionListener() {
+        textoCreditos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordUsuarioActionPerformed(evt);
+                textoCreditosActionPerformed(evt);
             }
         });
-        getContentPane().add(passwordUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 250, 30));
+        textoCreditos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                textoCreditosKeyTyped(evt);
+            }
+        });
+        getContentPane().add(textoCreditos, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 460, 250, 30));
 
         fondo.setBackground(new java.awt.Color(59, 55, 51));
         fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/fondo.jpg"))); // NOI18N
@@ -157,70 +166,73 @@ public class AgregarCurso extends javax.swing.JFrame {
         });
     }
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-       
        try
         {
-            int id = Integer.parseInt(textoUsuario.getText());
-            String nombre = textoUsuario1.getText().trim();
-            String tipo = tipoUsuario.getSelectedItem().toString().toLowerCase();
-            String password = passwordUsuario.getText();
-            if (!nombre.equals("") && !tipo.equals("") && !password.equals(""))
+            int id = Integer.parseInt(textoCodigo.getText());
+            String nombre = textoNombre.getText().trim();
+            int semestre = Integer.parseInt(textoSemestre.getText());
+            int creditos = Integer.parseInt(textoCreditos.getText());
+            
+            if (!nombre.equals(""))
             {
-                Estudiante estudiante = EstructuraGeneral.buscarEstudiante(id);
-                if (tipo.equals(Usuario.SUPER) || tipo.equals(Usuario.COLABORADOR) || estudiante != null)
+                if(EstructuraGeneral.agregarCurso(id, nombre, semestre, creditos))
                 {
-                    if (EstructuraGeneral.agregarUsuario(id, nombre, password, tipo, estudiante))
-                    {
-                        JOptionPane.showMessageDialog(this, "Se ha agregado al usuario con el Identificador: " + id + " correctamente. ","Completado",JOptionPane.INFORMATION_MESSAGE);
-                        JOptionPane.showMessageDialog(this, "Con el nombre: "+nombre);
-                        textoUsuario.setText("");
-                        textoUsuario1.setText("");
-                        
-                        passwordUsuario.setText("");
-                    } else
-                    {
-                        JOptionPane.showMessageDialog(this, "No se ha agregado al usuario: " + id + " porque este ID ya existe. ", "Error", JOptionPane.ERROR_MESSAGE);
-                    }
+                    JOptionPane.showMessageDialog(this, "Se ha agregado el curso de " + nombre + " correctamente. ","Completado",JOptionPane.INFORMATION_MESSAGE);
+                    textoCodigo.setText("");
+                    textoNombre.setText("");
+                    textoSemestre.setText("");
+                    textoCreditos.setText("");
+                    
+                    EstructuraGeneral.getListaCursos().mostrarDatos();
                 } else
                 {
-                    JOptionPane.showMessageDialog(this, "El usuario de tipo estudiante no existe en el sistema.", "Error", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(this, "No se ha agregado al curso " + id + " porque este codigo ya existe. ","Error",JOptionPane.ERROR_MESSAGE);
                 }
             } else
             {
-                JOptionPane.showMessageDialog(this, "Los campos estan incompletos", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Los campos estan incompletos","Error",JOptionPane.ERROR_MESSAGE);
             }
 
         } catch (NumberFormatException e)
         {
-            JOptionPane.showMessageDialog(this, "El ID debe ser numerico", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "No ingreso los datos correctamente","Error",JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_agregarActionPerformed
 
-    private void textoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoUsuarioActionPerformed
+    private void textoCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoCodigoActionPerformed
         // TODO add your handling code here:
         
-    }//GEN-LAST:event_textoUsuarioActionPerformed
+    }//GEN-LAST:event_textoCodigoActionPerformed
 
-    private void textoUsuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoUsuario1ActionPerformed
+    private void textoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_textoUsuario1ActionPerformed
+    }//GEN-LAST:event_textoNombreActionPerformed
 
-    private void tipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tipoUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tipoUsuarioActionPerformed
-
-    private void textoUsuarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoUsuarioKeyTyped
-    if(!Character.isDigit(evt.getKeyChar())&&evt.getKeyChar()!='-'){
+    private void textoCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoCodigoKeyTyped
+    if(!Character.isDigit(evt.getKeyChar())){
        evt.consume();
    } 
-        if(evt.getKeyChar()=='-'&&textoUsuario.getText().contains("-")){
-      evt.consume();
-       }  
-    }//GEN-LAST:event_textoUsuarioKeyTyped
+    }//GEN-LAST:event_textoCodigoKeyTyped
 
-    private void passwordUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordUsuarioActionPerformed
+    private void textoSemestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoSemestreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passwordUsuarioActionPerformed
+    }//GEN-LAST:event_textoSemestreActionPerformed
+
+    private void textoSemestreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoSemestreKeyTyped
+    if(!Character.isDigit(evt.getKeyChar())){
+       evt.consume();
+   }         // TODO add your handling code here:
+    }//GEN-LAST:event_textoSemestreKeyTyped
+
+    private void textoCreditosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textoCreditosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_textoCreditosActionPerformed
+
+    private void textoCreditosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textoCreditosKeyTyped
+if(!Character.isDigit(evt.getKeyChar())){
+       evt.consume();
+   }         // TODO add your handling code here:
+    }//GEN-LAST:event_textoCreditosKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -232,10 +244,10 @@ public class AgregarCurso extends javax.swing.JFrame {
     public javax.swing.JLabel instruccionesUsuario3;
     public javax.swing.JLabel instruccionesUsuario4;
     public javax.swing.JLabel logo;
-    private javax.swing.JPasswordField passwordUsuario;
-    public javax.swing.JTextField textoUsuario;
-    public javax.swing.JTextField textoUsuario1;
-    private javax.swing.JComboBox<String> tipoUsuario;
+    public javax.swing.JTextField textoCodigo;
+    public javax.swing.JTextField textoCreditos;
+    public javax.swing.JTextField textoNombre;
+    public javax.swing.JTextField textoSemestre;
     public javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }

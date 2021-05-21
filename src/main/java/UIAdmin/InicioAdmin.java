@@ -5,10 +5,13 @@
  */
 package UIAdmin;
 
+import UIAdmin.ABC_Curso.AgregarCurso;
+import UIAdmin.ABC_Curso.EditarCurso;
 import UIAdmin.ABC_Edificio.AgregarEdificio;
 import UIAdmin.ABC_Edificio.EliminarEdificio;
 import UIAdmin.ABC_Salon.AgregarSalon;
 import UIAdmin.ABC_Salon.EditarSalon;
+import UIAdmin.ABC_Salon.VisualizarCursos;
 import UIAdmin.ABC_Usuario.AgregarUsuario;
 import UIAdmin.ABC_Usuario.EditarUsuario;
 import UIGeneral.Login;
@@ -363,7 +366,7 @@ public class InicioAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_ABCSalonesActionPerformed
 
     private void cargarDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cargarDatosActionPerformed
-        // TODO add your handling code here:
+        new CargarDatos();        // TODO add your handling code here:
     }//GEN-LAST:event_cargarDatosActionPerformed
 
     private void ABCUsuarios3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCUsuarios3ActionPerformed
@@ -384,11 +387,11 @@ public class InicioAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_ABCSalones2ActionPerformed
 
     private void ABCCursos2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCCursos2ActionPerformed
-        // TODO add your handling code here:
+    new EditarCurso();        // TODO add your handling code here:
     }//GEN-LAST:event_ABCCursos2ActionPerformed
 
     private void ABCCursos3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCCursos3ActionPerformed
-        // TODO add your handling code here:
+    new VisualizarCursos();        // TODO add your handling code here:
     }//GEN-LAST:event_ABCCursos3ActionPerformed
 
     private void ABCEdificios1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCEdificios1ActionPerformed
@@ -400,11 +403,11 @@ public class InicioAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_ABCEdificios2ActionPerformed
 
     private void ABCCursos4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCCursos4ActionPerformed
-        // TODO add your handling code here:
+    new EditarCurso();        // TODO add your handling code here:
     }//GEN-LAST:event_ABCCursos4ActionPerformed
 
     private void ABCCursos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ABCCursos1ActionPerformed
-        // TODO add your handling code here:
+        new AgregarCurso();
     }//GEN-LAST:event_ABCCursos1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

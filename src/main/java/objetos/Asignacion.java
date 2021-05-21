@@ -33,6 +33,7 @@ public class Asignacion {
         this.examenFinal = examenFinal;
         this.horario = horario;
     }
+    
 
     /**
      * CONSTRUCTOR PARA LA ASIGNACION DE UN ESTUDIANTE POR MEDIO DEL ID
@@ -52,6 +53,14 @@ public class Asignacion {
         this.idHorario = idHorario;
     }
 
+    public Asignacion(int zona, int examenFinal, int idEstudiante, int idHorario) {
+        this.zona = zona;
+        this.examenFinal = examenFinal;
+        this.idEstudiante = idEstudiante;
+        this.idHorario = idHorario;
+    }
+
+    
     public int getId() {
         return id;
     }
